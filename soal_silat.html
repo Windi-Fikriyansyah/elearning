@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>E-Learning</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./icon/3/favicon.ico" />
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css" />
+    <!-- styles css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+
+
+
+
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+         :root {
+            --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .quiz {
+            background-color: #0d479a;
+            padding: 30px;
+        }
+        
+        .heading {
+            margin: 10px auto 10px auto;
+        }
+        
+        .heading .title {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .heading .subtitle {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .result {
+            text-align: center;
+            min-width: 350px;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 5px;
+            background: white;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .result p:first-child {
+            padding: 10px 20px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .reload button {
+            background-color: #04aa6d;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0px 0px 5px 5px;
+            width: 100%;
+            border: 0px;
+        }
+        
+        .reload button:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+        
+        .quiz-form {
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .question {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question>* {
+            font-size: 18px;
+        }
+        
+        .option {
+            margin-left: 10px;
+        }
+        
+        .correct {
+            background-color: #c8ffdf;
+        }
+        
+        .wrong {
+            background-color: #ff5d5d;
+        }
+        
+        .submit {
+            text-align: center;
+            margin: 30px 0px;
+        }
+        
+        .submit input {
+            background-color: #04aa6d;
+            padding: 5px 25px;
+            color: white;
+            font-size: 22px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 0;
+        }
+        
+        .submit input:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <header id="home">
+        <!-- ===========navbar========== -->
+        <nav class="navbar">
+            <div class="nav-center">
+                <!-- nav header  -->
+                <div class="nav-header">
+                    <img src="./myimges/Desain tanpa judul (3).png" class="nav-logo" alt="logo" />
+                    <button type="button" class="nav-toggle" id="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+                </div>
+                <!-- end of nav heaer -->
+                <!-- links -->
+                <ul class="nav-links" id="nav-links">
+                    <!-- link 1 -->
+                    <li>
+                        <a href="index.html" class="nav-link ">home</a>
+                    </li>
+                    <!-- end of link 1 -->
+
+                    <!-- link 2-->
+                    <li>
+                        <a href="" class="nav-link ">FullBab</a>
+                    </li>
+                    <!-- end of link 2 -->
+
+                    <!-- link 3-->
+
+
+                </ul>
+                <!-- end of links -->
+
+                <!-- nav icons -->
+                <ul class="nav-icons">
+                    <!-- icon 1 -->
+                    <img src="./myimges/20240227_102800_0000.png" class="nav-logo" alt="logo" />
+                    <!-- end fo icom 3 -->
+                </ul>
+                <!-- end of nav icons -->
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="quiz">
+            <div class="heading">
+                <p class="title">Quiz app</p>
+                <p class="subtitle">Daily Quiz to test your knowledge</p>
+            </div>
+            <div class="result hide">
+                <p>You scored 5 /5</p>
+                <p class="reload">
+                    <button onclick="document.location.reload(true)">Try Again</button>
+                </p>
+            </div>
+            <form class="quiz-form">
+                <div class="question">
+                    <p>1. Induk pencak silat indonesia adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q1" value="A">
+                        <label for="">a. PSSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="B">
+                        <label for="">b. IPSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="C">
+                        <label for="">c. PBVSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="D">
+                        <label for="">d. PBSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="E">
+                        <label for="">e. VIVA</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Berikut ini yang bukan termasuk teknik dasar pencak silat adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q2" value="A">
+                        <label for="">a. Pukulan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="B">
+                        <label for="">b. Tendangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="C">
+                        <label for="">c. Tangkisan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="D">
+                        <label for="">d. Sundulan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="E">
+                        <label for="">e. Elakkan</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Berikut yang bukan termasuk unsur-unsur yang terdapat dalam pencak silat Indonesia ...</p>
+                    <div class="option">
+                        <input type="radio" name="q3" value="A">
+                        <label for="">a. Olahraga</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="B">
+                        <label for="">b. Kesenian</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="C">
+                        <label for="">c. Beladiri</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="D">
+                        <label for="">d. Pendidikan mental kerokhanian</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="E">
+                        <label for="">e. Unjuk kekuatan</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Dalam konteks pencak silat sebagai seni bela diri tradisional Indonesia, pilihlah pernyataan yang paling tepat ...</p>
+                    <div class="option">
+                        <input type="radio" name="q4" value="A">
+                        <label for="">a. Pencak silat hanya fokus nilai-nilai budaya yang dipelajari</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="B">
+                        <label for="">b. Pencak silat tidak memiliki nilai-nilai budaya yang dapat dipelajari</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="C">
+                        <label for="">c. Pencak silat merupakan kombinasi harmonis antara olahraga, seni, dan bela diri</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="D">
+                        <label for="">d. Hanya individu dengan bakat alami yang dapat menjadi ahli dalam pencak silat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="E">
+                        <label for="">e. Teknik-teknik dalam pencak silat tidak dapat diadaptasi untuk penggunaan dalam kehidupan sehari-hari</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Gambar disamping merupakan teknik dasar pencak silat, yakni...</p>
+                    <div class="option">
+                        <input type="radio" name="q5" value="A">
+                        <label for="">a. Tangkisan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="B">
+                        <label for="">b. Tendangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="C">
+                        <label for="">c. Pukulan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="D">
+                        <label for="">d. Sundulan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="E">
+                        <label for="">e. Elakan</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Tujuan gerakan menangkis adalah…</p>
+                    <div class="option">
+                        <input type="radio" name="q6" value="A">
+                        <label for="">a. Menghindari pukulan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="B">
+                        <label for="">b. Menghindari serangan lawan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="C">
+                        <label for="">c. Menghindari jatuhan lawan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="D">
+                        <label for="">d. Menghindari tebasan lawan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="E">
+                        <label for="">e. Menghindari tendangan lawan</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Dalam seni bela diri pencak silat, pola langkah sering kali digunakan untuk ...</p>
+                    <div class="option">
+                        <input type="radio" name="q7" value="A">
+                        <label for="">a. Menunjukkan kekuatan fisik yang dominan.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="B">
+                        <label for="">b. Mengelabui lawan dengan gerakan yang kompleks</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="C">
+                        <label for="">c. Mengatur ritme dan mengontrol jarak dalam pertarungan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="D">
+                        <label for="">d. Mengesankan penonton dengan gerakan yang dramatis</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="E">
+                        <label for="">e. Membuat lawan terjatuh dengan kekuatan pukulan yang kuat</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Salah satu tujuan dari teknik elakan dalam pencak silat adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q8" value="A">
+                        <label for="">a. Menghindari serangan lawan dengan gesit dan lincah</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="B">
+                        <label for="">b. Menyakiti lawan sebanyak mungkin</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="C">
+                        <label for="">c. Memperlihatkan kelincahan tubuh kepada penonton</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="D">
+                        <label for="">d. Membuat lawan terjatuh dengan kekuatan pukulan yang kuat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="E">
+                        <label for="">e. Membuat lawan terkejut dan takut</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Tendangan dalam pencak silat memiliki fungsi utama sebagai …</p>
+                    <div class="option">
+                        <input type="radio" name="q9" value="A">
+                        <label for="">a. Serangan langsung untuk melumpuhkan lawan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="B">
+                        <label for="">b. Pameran kekuatan fisik yang mengesankan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="C">
+                        <label for="">c. Alat untuk mengatur ritme pertarungan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="D">
+                        <label for="">d. Perlindungan terhadap serangan lawan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="E">
+                        <label for="">e. Menyakiti lawan sebanyak mungkin</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Tangkisan dalam pencak silat bertujuan untuk ...</p>
+                    <div class="option">
+                        <input type="radio" name="q10" value="A">
+                        <label for="">a. Menyerang lawan dengan kekuatan penuh</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="B">
+                        <label for="">b. Melindungi diri dari serangan lawan dengan tepat dan efisien</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="C">
+                        <label for="">c. Membuat pertarungan menjadi lebih dramatis</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="D">
+                        <label for="">d. Membuat lawan terkejut dan takut</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="E">
+                        <label for="">e. Memperlihatkan keahlian teknis kepada penonton</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>11. Salah satu fungsi utama dari pukulan dalam pencak silat adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q11" value="A">
+                        <label for="">a. Memperlihatkan kekuatan fisik yang dominan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="B">
+                        <label for="">b. Mengelabui lawan dengan gerakan yang kompleks</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="C">
+                        <label for="">c. Menyakiti lawan sebanyak mungkin</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="D">
+                        <label for="">d. Mengatur ritme dan mengontrol jarak dalam pertarungan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="E">
+                        <label for="">e. Melindungi diri dari serangan lawan</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>12. Anggota tubuh yang dapat digunakan untuk menangkis lawan adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q12" value="A">
+                        <label for="">a. Kaki, lutut, dan dada</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="B">
+                        <label for="">b. Kepala, kaki, dan dada</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="C">
+                        <label for="">c. Tangan, kaki, dan siku</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="D">
+                        <label for="">d. Dada, kepala, dan kaki</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="E">
+                        <label for="">e. Semua benar</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>13. Saat bertanding Ilham berhasil menangkis serangan lawan dan menendangnya dengan sah, maka skor yang didapatkan ilham adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q13" value="A">
+                        <label for="">a. 1</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="B">
+                        <label for="">b. 2</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="C">
+                        <label for="">c. 3</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="D">
+                        <label for="">d. 4</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="E">
+                        <label for="">e. 5</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>14. Jika anda adalah seorang pesilat, bagaimana anda dapat meningkatkan kemampuan teknik bertarung anda …</p>
+                    <div class="option">
+                        <input type="radio" name="q14" value="A">
+                        <label for="">a. Dengan berlatih secara konsisten dan disiplin</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="B">
+                        <label for="">b. Dengan menggunakan peralatan latihan yang mahal dan canggih</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="C">
+                        <label for="">c. Dengan bergabung dengan klub pencak silat terkenal</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="D">
+                        <label for="">d. Dengan mengikuti kursus intensif pencak silat diluar negeri</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="E">
+                        <label for="">e. Dengan melakukan lari pagi setiap hari</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>15. Mengapa penting bagi seorang pesilat untuk mempelajari teknik-teknik dasar dalam pencak silat ...</p>
+                    <div class="option">
+                        <input type="radio" name="q15" value="A">
+                        <label for="">a. Agar pesilat terlihat kuat dan tangguh</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="B">
+                        <label for="">b. Agar pesiat terhindar dari cedera saat berlatih</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="C">
+                        <label for="">c. Agar pesilat dapat menggunakan teknik-teknik tersebut secara efektif dalam pertandingan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="D">
+                        <label for="">d. Agar pesilat dapat mengesankan penonton saat bertanding</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="E">
+                        <label for="">e. Agar pesilat cepat mendapatkan poin</label>
+                    </div>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./silat.js"></script>
+
+
+</body>
+
+</html>

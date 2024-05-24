@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>E-Learning</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./icon/3/favicon.ico" />
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css" />
+    <!-- styles css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+
+
+
+
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+         :root {
+            --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .quiz {
+            background-color: #0d479a;
+            padding: 30px;
+        }
+        
+        .heading {
+            margin: 10px auto 10px auto;
+        }
+        
+        .heading .title {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .heading .subtitle {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .result {
+            text-align: center;
+            min-width: 350px;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 5px;
+            background: white;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .result p:first-child {
+            padding: 10px 20px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .reload button {
+            background-color: #04aa6d;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0px 0px 5px 5px;
+            width: 100%;
+            border: 0px;
+        }
+        
+        .reload button:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+        
+        .quiz-form {
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .question {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question>* {
+            font-size: 18px;
+        }
+        
+        .option {
+            margin-left: 10px;
+        }
+        
+        .correct {
+            background-color: #c8ffdf;
+        }
+        
+        .wrong {
+            background-color: #ff5d5d;
+        }
+        
+        .submit {
+            text-align: center;
+            margin: 30px 0px;
+        }
+        
+        .submit input {
+            background-color: #04aa6d;
+            padding: 5px 25px;
+            color: white;
+            font-size: 22px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 0;
+        }
+        
+        .submit input:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <header id="home">
+        <!-- ===========navbar========== -->
+        <nav class="navbar">
+            <div class="nav-center">
+                <!-- nav header  -->
+                <div class="nav-header">
+                    <img src="./myimges/Desain tanpa judul (3).png" class="nav-logo" alt="logo" />
+                    <button type="button" class="nav-toggle" id="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+                </div>
+                <!-- end of nav heaer -->
+                <!-- links -->
+                <ul class="nav-links" id="nav-links">
+                    <!-- link 1 -->
+                    <li>
+                        <a href="index.html" class="nav-link ">home</a>
+                    </li>
+                    <!-- end of link 1 -->
+
+                    <!-- link 2-->
+                    <li>
+                        <a href="" class="nav-link ">FullBab</a>
+                    </li>
+                    <!-- end of link 2 -->
+
+                    <!-- link 3-->
+
+
+                </ul>
+                <!-- end of links -->
+
+                <!-- nav icons -->
+                <ul class="nav-icons">
+                    <!-- icon 1 -->
+                    <img src="./myimges/20240227_102800_0000.png" class="nav-logo" alt="logo" />
+                    <!-- end fo icom 3 -->
+                </ul>
+                <!-- end of nav icons -->
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="quiz">
+            <div class="heading">
+                <p class="title">Quiz app</p>
+                <p class="subtitle">Daily Quiz to test your knowledge</p>
+            </div>
+            <div class="result hide">
+                <p>You scored 5 /5</p>
+                <p class="reload">
+                    <button onclick="document.location.reload(true)">Try Again</button>
+                </p>
+            </div>
+            <form class="quiz-form">
+                <div class="question ">
+                    <p>1. Permainan olahraga yang menggunakan raket (terbuat dari papan kayu) dan dilapisi karet yang biasa disebut bet yaitu ...</p>
+                    <div class="option">
+                        <input type="radio" name="q1" value="A">
+                        <label for="">Tenis lapangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="B">
+                        <label for="">Bola voli</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="C">
+                        <label for="">Bulu tangkis</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="D">
+                        <label for="">Tenis meja</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="E">
+                        <label for="">Softball</label>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question">
+                    <p>2. Bola tenis meja berukuran ...</p>
+                    <div class="option">
+                        <input type="radio" name="q2" value="A">
+                        <label for="">70 mm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="B">
+                        <label for="">50 mm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="C">
+                        <label for="">40 mm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="D">
+                        <label for="">60 mm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="E">
+                        <label for="">30 mm</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. Nama lain permainan tenis meja yaitu ...</p>
+                    <div class="option">
+                        <input type="radio" name="q3" value="A">
+                        <label for="">Tenis lapangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="B">
+                        <label for="">Minnote</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="C">
+                        <label for="">Bulu tangkis</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="D">
+                        <label for="">Badminton</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="E">
+                        <label for="">Ping pong</label>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question">
+                    <p>4. Berat bola tenis meja yaitu ...</p>
+                    <div class="option">
+                        <input type="radio" name="q4" value="A">
+                        <label for="">2.7 gram</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="B">
+                        <label for="">2.5 gram</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="C">
+                        <label for="">2.4 gram</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="D">
+                        <label for="">2.6 gram</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="E">
+                        <label for="">2.8 gram</label>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question">
+                    <p>5. Lebar bet tenis meja yaitu ...</p>
+                    <div class="option">
+                        <input type="radio" name="q5" value="A">
+                        <label for="">18 cm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="B">
+                        <label for="">16 cm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="C">
+                        <label for="">15 cm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="D">
+                        <label for="">17 cm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="E">
+                        <label for="">14 cm</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>6. Ukuran panjang bet tenis meja yaitu ...</p>
+                    <div class="option">
+                        <input type="radio" name="q6" value="A">
+                        <label for="">19.5 cm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="B">
+                        <label for="">17.5 cm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="C">
+                        <label for="">16.5 cm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="D">
+                        <label for="">18.5 cm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="E">
+                        <label for="">15.5 cm</label>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question">
+                    <p>7. Teknik memegang bet tenis meja seperti menjabat tangan dinamakan ...</p>
+                    <div class="option">
+                        <input type="radio" name="q7" value="A">
+                        <label for="">Combination grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="B">
+                        <label for="">Shakehand grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="C">
+                        <label for="">Penhold grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="D">
+                        <label for="">American grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="E">
+                        <label for="">Forehand grip</label>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question">
+                    <p>8. Cara yang paling sederhana untuk mengembalikan pukulan bola yang keras yaitu ...</p>
+                    <div class="option">
+                        <input type="radio" name="q8" value="A">
+                        <label for="">Block</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="B">
+                        <label for="">Push</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="C">
+                        <label for="">Drive</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="D">
+                        <label for="">Chop</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="E">
+                        <label for="">Smash</label>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question">
+                    <p>9. Satu di antara teknik memegang bet pada permainan tenis meja seperti memegang tangkai pena dinamakan ...</p>
+                    <div class="option">
+                        <input type="radio" name="q9" value="A">
+                        <label for="">Combination grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="B">
+                        <label for="">Shakehand grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="C">
+                        <label for="">Penhold grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="D">
+                        <label for="">American grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="E">
+                        <label for="">Forehand grip</label>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question">
+                    <p>10. Memukul bola untuk menyajikan bola pertama dinamakan ...</p>
+                    <div class="option">
+                        <input type="radio" name="q10" value="A">
+                        <label for="">Block</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="B">
+                        <label for="">Push</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="C">
+                        <label for="">Service</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="D">
+                        <label for="">Chop</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="E">
+                        <label for="">Smash</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>11. Di Indonesia, Induk olahraga tenis meja yaitu ...</p>
+                    <div class="option">
+                        <input type="radio" name="q11" value="A">
+                        <label for="">PBSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="B">
+                        <label for="">PRSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="C">
+                        <label for="">PSSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="D">
+                        <label for="">PTMSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="E">
+                        <label for="">PBTI</label>
+                    </div>
+
+                </div>
+                <!-- Question 12 -->
+                <div class="question">
+                    <p>12. Gerakan memukul bola tenis meja seperti menebang pohon dengan kapak dinamakan ...</p>
+                    <div class="option">
+                        <input type="radio" name="q12" value="A">
+                        <label for="">Smash</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="B">
+                        <label for="">Chop</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="C">
+                        <label for="">Push</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="D">
+                        <label for="">Grip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="E">
+                        <label for="">Spin</label>
+                    </div>
+                </div>
+                <!-- Question 13 -->
+                <div class="question">
+                    <p>13. Bet berada di sebelah kiri tubuh. Gerakkan bet ke depan, posisi bet tertutup (sisi depan bet menghadap ke bawah). Perhatikan arah datangnya bola, setelah bola memantul dari meja, perkenaan bola dengan bet tepat pada tengah bet
+                        merupakan proses melakukan pukulan ...</p>
+                    <div class="option">
+                        <input type="radio" name="q13" value="A">
+                        <label for="">Forehand block</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="B">
+                        <label for="">Backhand block</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="C">
+                        <label for="">Forehand chop</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="D">
+                        <label for="">Backhand chop</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="E">
+                        <label for="">Forehand Backhand</label>
+                    </div>
+                </div>
+                <!-- Question 14 -->
+                <div class="question">
+                    <p>14. Dalam tenis meja teknik gerakan kaki disebut ...</p>
+                    <div class="option">
+                        <input type="radio" name="q14" value="A">
+                        <label for="">Forehand</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="B">
+                        <label for="">Block</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="C">
+                        <label for="">Drive</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="D">
+                        <label for="">Footwork</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="E">
+                        <label for="">Handgrip</label>
+                    </div>
+                </div>
+                <!-- Question 15 -->
+                <div class="question">
+                    <p>15. Teknik mengembalikan bola seperti gaya membacok dalam tenis meja ialah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q15" value="A">
+                        <label for="">Drive defensive</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="B">
+                        <label for="">Drive offensive</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="C">
+                        <label for="">Cut defensive</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="D">
+                        <label for="">Cut offensive</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="E">
+                        <label for="">Chop defensive</label>
+                    </div>
+                </div>
+                </div>
+
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./tenis.js"></script>
+
+
+</body>
+
+</html>

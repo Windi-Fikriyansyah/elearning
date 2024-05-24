@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>E-Learning</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./icon/3/favicon.ico" />
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css" />
+    <!-- styles css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+
+
+
+
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+         :root {
+            --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .quiz {
+            background-color: #0d479a;
+            padding: 30px;
+        }
+        
+        .heading {
+            margin: 10px auto 10px auto;
+        }
+        
+        .heading .title {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .heading .subtitle {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .result {
+            text-align: center;
+            min-width: 350px;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 5px;
+            background: white;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .result p:first-child {
+            padding: 10px 20px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .reload button {
+            background-color: #04aa6d;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0px 0px 5px 5px;
+            width: 100%;
+            border: 0px;
+        }
+        
+        .reload button:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+        
+        .quiz-form {
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .question {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question>* {
+            font-size: 18px;
+        }
+        
+        .option {
+            margin-left: 10px;
+        }
+        
+        .correct {
+            background-color: #c8ffdf;
+        }
+        
+        .wrong {
+            background-color: #ff5d5d;
+        }
+        
+        .submit {
+            text-align: center;
+            margin: 30px 0px;
+        }
+        
+        .submit input {
+            background-color: #04aa6d;
+            padding: 5px 25px;
+            color: white;
+            font-size: 22px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 0;
+        }
+        
+        .submit input:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <header id="home">
+        <!-- ===========navbar========== -->
+        <nav class="navbar">
+            <div class="nav-center">
+                <!-- nav header  -->
+                <div class="nav-header">
+                    <img src="./myimges/Desain tanpa judul (3).png" class="nav-logo" alt="logo" />
+                    <button type="button" class="nav-toggle" id="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+                </div>
+                <!-- end of nav heaer -->
+                <!-- links -->
+                <ul class="nav-links" id="nav-links">
+                    <!-- link 1 -->
+                    <li>
+                        <a href="index.html" class="nav-link ">home</a>
+                    </li>
+                    <!-- end of link 1 -->
+
+                    <!-- link 2-->
+                    <li>
+                        <a href="" class="nav-link ">FullBab</a>
+                    </li>
+                    <!-- end of link 2 -->
+
+                    <!-- link 3-->
+
+
+                </ul>
+                <!-- end of links -->
+
+                <!-- nav icons -->
+                <ul class="nav-icons">
+                    <!-- icon 1 -->
+                    <img src="./myimges/20240227_102800_0000.png" class="nav-logo" alt="logo" />
+                    <!-- end fo icom 3 -->
+                </ul>
+                <!-- end of nav icons -->
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="quiz">
+            <div class="heading">
+                <p class="title">Quiz app</p>
+                <p class="subtitle">Daily Quiz to test your knowledge</p>
+            </div>
+            <div class="result hide">
+                <p>You scored 5 /5</p>
+                <p class="reload">
+                    <button onclick="document.location.reload(true)">Try Again</button>
+                </p>
+            </div>
+            <form class="quiz-form">
+                <div class="question ">
+                    <p>1. Sarung tangan atau glove yang dipakai oleh pemain softball terbagi menjadi 3 macam, antara lain ...</p>
+                    <div class="option">
+                        <input type="radio" name="q1" value="A">
+                        <label for="">Finger glove, catcher glove, first base mills</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="B">
+                        <label for="">Finger glove, first base mills, thrower glove</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="C">
+                        <label for="">Thrower glove, catcher glove, first bade mills</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="D">
+                        <label for="">Thrower glove, catcher glove, finger glove</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="E">
+                        <label for="">Finger glove, thrower glove, first base mills</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Home plate dalam softball berbentuk ...</p>
+                    <div class="option">
+                        <input type="radio" name="q2" value="A">
+                        <label for="">Segi tiga</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="B">
+                        <label for="">Segi empat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="C">
+                        <label for="">Segi lima</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="D">
+                        <label for="">Segi enam</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="E">
+                        <label for="">Segi tujuh</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Celana yang dikenakan oleh wasit dalam olahraga softball berwarna ...</p>
+                    <div class="option">
+                        <input type="radio" name="q3" value="A">
+                        <label for="">Biru cerah</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="B">
+                        <label for="">Biru laut</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="C">
+                        <label for="">Biru dongker</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="D">
+                        <label for="">Biru tua</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="E">
+                        <label for="">Biru langit</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Gerakan meluncur dengan menjatuhkan badan guna menghindarai ketukan bola oleh penjaga base disebut ...</p>
+                    <div class="option">
+                        <input type="radio" name="q4" value="A">
+                        <label for="">Pitching</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="B">
+                        <label for="">Sliding</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="C">
+                        <label for="">Stick</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="D">
+                        <label for="">Jumping</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="E">
+                        <label for="">Catching</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Posisi tubuh saat menangkap bola lemparan bawah adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q5" value="A">
+                        <label for="">Tegak</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="B">
+                        <label for="">Membungkuk</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="C">
+                        <label for="">Miring</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="D">
+                        <label for="">Condong</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="E">
+                        <label for="">Lurus</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Waktu yang diberikan kepada pitcher untuk melakukan lemparan adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q6" value="A">
+                        <label for="">5 detik</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="B">
+                        <label for="">10 detik</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="C">
+                        <label for="">15 detik</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="D">
+                        <label for="">20 detik</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="E">
+                        <label for="">25 detik</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Base yang terdapat dalam softball berjumlah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q7" value="A">
+                        <label for="">2</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="B">
+                        <label for="">3</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="C">
+                        <label for="">4</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="D">
+                        <label for="">5</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="E">
+                        <label for="">6</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Base pertama tempat memukul bola oleh pemain softball disebut ...</p>
+                    <div class="option">
+                        <input type="radio" name="q8" value="A">
+                        <label for="">Plate base</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="B">
+                        <label for="">House base</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="C">
+                        <label for="">Marka</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="D">
+                        <label for="">Plate</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="E">
+                        <label for="">Home plate</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Lapangan olahraga softball berbentuk ...</p>
+                    <div class="option">
+                        <input type="radio" name="q9" value="A">
+                        <label for="">Bujur sangkar</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="B">
+                        <label for="">Persegi panjang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="C">
+                        <label for="">Lingkaran</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="D">
+                        <label for="">Segitiga</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="E">
+                        <label for="">Jajargenjang</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Ukuran base atau tempat hinggap dalam olahraga softball adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q10" value="A">
+                        <label for="">30x30</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="B">
+                        <label for="">38x38</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="C">
+                        <label for="">40x40</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="D">
+                        <label for="">45x45</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="E">
+                        <label for="">50x50</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>11. Glove yang digunakan oleh seluruh pemain lapangan softball adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q11" value="A">
+                        <label for="">First base mills</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="B">
+                        <label for="">Catcher glove</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="C">
+                        <label for="">Batter glove</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="D">
+                        <label for="">Finger glove</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="E">
+                        <label for="">Pitcher glove</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>12. Jarak antara pitcher plate ke home base untuk softball laki-laki adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q12" value="A">
+                        <label for="">40ft</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="B">
+                        <label for="">42ft</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="C">
+                        <label for="">44ft</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="D">
+                        <label for="">46ft</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="E">
+                        <label for="">48ft</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>13. Jarak antara pitcher plate ke home base untuk softball perempuan adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q13" value="A">
+                        <label for="">40ft</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="B">
+                        <label for="">42ft</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="C">
+                        <label for="">44ft</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="D">
+                        <label for="">46ft</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="E">
+                        <label for="">48ft</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>14. Ukuran panjang lapangan olahraga softball adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q14" value="A">
+                        <label for="">18.1 m</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="B">
+                        <label for="">18.2 m</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="C">
+                        <label for="">18.3 m</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="D">
+                        <label for="">18.4 m</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="E">
+                        <label for="">18.5 m</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>15. Bola dalam olahraga softball terbuat dari kulit yang didalamnya terdapat percampuran antara ...</p>
+                    <div class="option">
+                        <input type="radio" name="q15" value="A">
+                        <label for="">Karet dan kain</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="B">
+                        <label for="">Karet dan gabus</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="C">
+                        <label for="">Gabus dan kain</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="D">
+                        <label for="">Kain dan karbon</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="E">
+                        <label for="">Plastik dan kain</label>
+                    </div>
+
+                </div>
+
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./softball.js"></script>
+
+
+</body>
+
+</html>

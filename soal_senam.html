@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>E-Learning</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./icon/3/favicon.ico" />
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css" />
+    <!-- styles css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+
+
+
+
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+         :root {
+            --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .quiz {
+            background-color: #0d479a;
+            padding: 30px;
+        }
+        
+        .heading {
+            margin: 10px auto 10px auto;
+        }
+        
+        .heading .title {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .heading .subtitle {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .result {
+            text-align: center;
+            min-width: 350px;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 5px;
+            background: white;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .result p:first-child {
+            padding: 10px 20px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .reload button {
+            background-color: #04aa6d;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0px 0px 5px 5px;
+            width: 100%;
+            border: 0px;
+        }
+        
+        .reload button:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+        
+        .quiz-form {
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .question {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question>* {
+            font-size: 18px;
+        }
+        
+        .option {
+            margin-left: 10px;
+        }
+        
+        .correct {
+            background-color: #c8ffdf;
+        }
+        
+        .wrong {
+            background-color: #ff5d5d;
+        }
+        
+        .submit {
+            text-align: center;
+            margin: 30px 0px;
+        }
+        
+        .submit input {
+            background-color: #04aa6d;
+            padding: 5px 25px;
+            color: white;
+            font-size: 22px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 0;
+        }
+        
+        .submit input:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <header id="home">
+        <!-- ===========navbar========== -->
+        <nav class="navbar">
+            <div class="nav-center">
+                <!-- nav header  -->
+                <div class="nav-header">
+                    <img src="./myimges/Desain tanpa judul (3).png" class="nav-logo" alt="logo" />
+                    <button type="button" class="nav-toggle" id="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+                </div>
+                <!-- end of nav heaer -->
+                <!-- links -->
+                <ul class="nav-links" id="nav-links">
+                    <!-- link 1 -->
+                    <li>
+                        <a href="index.html" class="nav-link ">home</a>
+                    </li>
+                    <!-- end of link 1 -->
+
+                    <!-- link 2-->
+                    <li>
+                        <a href="" class="nav-link ">FullBab</a>
+                    </li>
+                    <!-- end of link 2 -->
+
+                    <!-- link 3-->
+
+
+                </ul>
+                <!-- end of links -->
+
+                <!-- nav icons -->
+                <ul class="nav-icons">
+                    <!-- icon 1 -->
+                    <img src="./myimges/20240227_102800_0000.png" class="nav-logo" alt="logo" />
+                    <!-- end fo icom 3 -->
+                </ul>
+                <!-- end of nav icons -->
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="quiz">
+            <div class="heading">
+                <p class="title">Quiz app</p>
+                <p class="subtitle">Daily Quiz to test your knowledge</p>
+            </div>
+            <div class="result hide">
+                <p>You scored 5 /5</p>
+                <p class="reload">
+                    <button onclick="document.location.reload(true)">Try Again</button>
+                </p>
+            </div>
+            <form class="quiz-form">
+                <div class="question">
+                    <p>1. Apa tujuan utama dari senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q1" value="A">
+                        <label for="">a. Meningkatkan kebugaran jasmani</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="B">
+                        <label for="">b. Meningkatkan keseimbangan mental</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="C">
+                        <label for="">c. Mengembangkan keterampilan menari</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="D">
+                        <label for="">d. Meningkatkan motorik</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="E">
+                        <label for="">e. Meningkatkan daya tahan jantung</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Senam lantai biasanya dilakukan di atas permukaan apa …</p>
+                    <div class="option">
+                        <input type="radio" name="q2" value="A">
+                        <label for="">a. Air</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="B">
+                        <label for="">b. Tanah</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="C">
+                        <label for="">c. Papan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="D">
+                        <label for="">d. Matras</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="E">
+                        <label for="">e. Meja</label>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question">
+                    <p>3. Apa nama gerakan dasar dalam senam lantai yang melibatkan berbagai posisi tubuh …</p>
+                    <div class="option">
+                        <input type="radio" name="q3" value="A">
+                        <label for="">a. Jongkok</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="B">
+                        <label for="">b. Berdiri tegak</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="C">
+                        <label for="">c. Berbaring</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="D">
+                        <label for="">d. Telungkup</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="E">
+                        <label for="">e. Miring</label>
+                    </div>
+                </div>
+                <!-- Question 4 -->
+                <div class="question">
+                    <p>4. Apa manfaat utama dari gerakan seperti berputar, melompat, dan melenting dalam senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q4" value="A">
+                        <label for="">a. Meningkatkan fleksibilitas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="B">
+                        <label for="">b. Meningkatkan kekuatan otot</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="C">
+                        <label for="">c. Meningkatkan konsentrasi</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="D">
+                        <label for="">d. Membuat jantung sehat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="E">
+                        <label for="">e. Membuat paru-paru sehat</label>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question">
+                    <p>5. Apa yang dimaksud dengan "tumbling" dalam senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q5" value="A">
+                        <label for="">a. Melompat tinggi</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="B">
+                        <label for="">b. Melakukan gerakan berputar</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="C">
+                        <label for="">c. Berlari dan melompat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="D">
+                        <label for="">d. Berjalan dan meloncat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="E">
+                        <label for="">e. Berlari dan berjalan</label>
+                    </div>
+                </div>
+
+                <!-- Questions 6-14 go here -->
+                <!-- Question 6 -->
+                <div class="question">
+                    <p>6. Gerakan "handstand" dalam senam lantai melibatkan apa …</p>
+                    <div class="option">
+                        <input type="radio" name="q6" value="A">
+                        <label for="">a. Berbaring di lantai dengan posisi tangan menopang tubuh</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="B">
+                        <label for="">b. Melompat dengan kedua kaki ke udara</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="C">
+                        <label for="">c. Berdiri tegak dengan posisi kepala di atas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="D">
+                        <label for="">d. Meloncat kedepan dengan kedua kaki</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="E">
+                        <label for="">e. Berdiri tegak dengan posisi kepala di bawah</label>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question">
+                    <p>7. Apa fungsi matras dalam senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q7" value="A">
+                        <label for="">a. Memberikan hiasan untuk tampilan yang lebih menarik</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="B">
+                        <label for="">b. Melindungi tubuh dari cedera saat jatuh</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="C">
+                        <label for="">c. Memberikan pegangan untuk gerakan yang lebih stabil</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="D">
+                        <label for="">d. Membuat tubuh menjadi lentur</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="E">
+                        <label for="">e. Membuat tubuh menjadi kuat</label>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question">
+                    <p>8. Apa yang dimaksud dengan "pike position" dalam senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q8" value="A">
+                        <label for="">a. Posisi tubuh membentuk huruf V terbalik</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="B">
+                        <label for="">b. Posisi tubuh melentur ke belakang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="C">
+                        <label for="">c. Posisi tubuh membentuk lingkaran</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="D">
+                        <label for="">d. Posisi tubuh berbaring</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="E">
+                        <label for="">e. Posisi tubuh miring</label>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question">
+                    <p>9. Gerakan apa yang melibatkan melompat dan melakukan putaran di udara sebelum mendarat kembali …</p>
+                    <div class="option">
+                        <input type="radio" name="q9" value="A">
+                        <label for="">a. Salto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="B">
+                        <label for="">b. Berjongkok</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="C">
+                        <label for="">c. Berdiri tegak</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="D">
+                        <label for="">d. Lompat harimau</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="E">
+                        <label for="">e. Kayang</label>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question">
+                    <p>10. Apa yang dimaksud dengan "layout" dalam senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q10" value="A">
+                        <label for="">a. Gerakan melompat dengan kaki terlipat ke dalam</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="B">
+                        <label for="">b. Gerakan melompat dengan kaki ditekuk</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="C">
+                        <label for="">c. Gerakan melompat dengan kaki lurus ke depan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="D">
+                        <label for="">d. Gerakan meloncat dengan kaki lurus ke depan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="E">
+                        <label for="">e. Gerakan meloncat dengan dua kaki</label>
+                    </div>
+                </div>
+
+                <!-- Questions 11-14 go here -->
+                <!-- Question 11 -->
+                <div class="question">
+                    <p>11. Bagaimana cara mengukur keberhasilan dalam senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q11" value="A">
+                        <label for="">a. Dengan memenangkan medali emas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="B">
+                        <label for="">b. Dengan mencapai target latihan pribadi</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="C">
+                        <label for="">c. Dengan mencetak rekor dunia</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="D">
+                        <label for="">d. Dengan mendapatkan penghargaan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="E">
+                        <label for="">e. Dengan memasukkan bola</label>
+                    </div>
+                </div>
+
+                <!-- Question 12 -->
+                <div class="question">
+                    <p>12. Apa yang dimaksud dengan "round-off" dalam senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q12" value="A">
+                        <label for="">a. Gerakan putaran satu kali</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="B">
+                        <label for="">b. Gerakan putaran dua kali</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="C">
+                        <label for="">c. Gerakan putaran setengah</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="D">
+                        <label for="">d. Gerakan membentuk lingkaran</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="E">
+                        <label for="">e. Gerakan putaran penuh</label>
+                    </div>
+                </div>
+
+                <!-- Question 13 -->
+                <div class="question">
+                    <p>13. Mengapa penting untuk memulai latihan senam lantai dengan pemanasan yang baik …</p>
+                    <div class="option">
+                        <input type="radio" name="q13" value="A">
+                        <label for="">a. Agar tubuh terbiasa dengan suhu ruangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="B">
+                        <label for="">b. Agar otot-otot lebih fleksibel dan terhindar dari cedera</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="C">
+                        <label for="">c. Agar waktu latihan lebih efisien</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="D">
+                        <label for="">d. Agar otot-otot lentur dan tidak kaget ketika kita melakukan gerakan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="E">
+                        <label for="">e. Agar memenangkan pertandingan</label>
+                    </div>
+                </div>
+
+                <!-- Question 14 -->
+                <div class="question">
+                    <p>14. Apa yang dimaksud dengan "double layout" dalam senam lantai …</p>
+                    <div class="option">
+                        <input type="radio" name="q14" value="A">
+                        <label for="">a. Melakukan gerakan dua kali putaran</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="B">
+                        <label for="">b. Melakukan gerakan dua kali melenting</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="C">
+                        <label for="">c. Melakukan gerakan dua kali loncat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="D">
+                        <label for="">d. Melakukan gerakan dua kali melompat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="E">
+                        <label for="">e. Melakukan gerakan dua kali meroda</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>15. Gerakan di mana seseorang berbaring telentang, kemudian menggulingkan tubuhnya ke belakang sehingga berputar ke arah yang berlawanan dengan gerakan jam …</p>
+                    <div class="option">
+                        <input type="radio" name="q15" value="A">
+                        <label for="">a. Kayang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="B">
+                        <label for="">b. Roll Keep</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="C">
+                        <label for="">c. Loncat Harimau</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="D">
+                        <label for="">d. Roll Belakang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="E">
+                        <label for="">e. Salto</label>
+                    </div>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./senam.js"></script>
+
+
+</body>
+
+</html>

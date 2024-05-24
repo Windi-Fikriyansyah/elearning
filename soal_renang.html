@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>E-Learning</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./icon/3/favicon.ico" />
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css" />
+    <!-- styles css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+
+
+
+
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+         :root {
+            --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .quiz {
+            background-color: #0d479a;
+            padding: 30px;
+        }
+        
+        .heading {
+            margin: 10px auto 10px auto;
+        }
+        
+        .heading .title {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .heading .subtitle {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .result {
+            text-align: center;
+            min-width: 350px;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 5px;
+            background: white;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .result p:first-child {
+            padding: 10px 20px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .reload button {
+            background-color: #04aa6d;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0px 0px 5px 5px;
+            width: 100%;
+            border: 0px;
+        }
+        
+        .reload button:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+        
+        .quiz-form {
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .question {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question>* {
+            font-size: 18px;
+        }
+        
+        .option {
+            margin-left: 10px;
+        }
+        
+        .correct {
+            background-color: #c8ffdf;
+        }
+        
+        .wrong {
+            background-color: #ff5d5d;
+        }
+        
+        .submit {
+            text-align: center;
+            margin: 30px 0px;
+        }
+        
+        .submit input {
+            background-color: #04aa6d;
+            padding: 5px 25px;
+            color: white;
+            font-size: 22px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 0;
+        }
+        
+        .submit input:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <header id="home">
+        <!-- ===========navbar========== -->
+        <nav class="navbar">
+            <div class="nav-center">
+                <!-- nav header  -->
+                <div class="nav-header">
+                    <img src="./myimges/Desain tanpa judul (3).png" class="nav-logo" alt="logo" />
+                    <button type="button" class="nav-toggle" id="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+                </div>
+                <!-- end of nav heaer -->
+                <!-- links -->
+                <ul class="nav-links" id="nav-links">
+                    <!-- link 1 -->
+                    <li>
+                        <a href="index.html" class="nav-link ">home</a>
+                    </li>
+                    <!-- end of link 1 -->
+
+                    <!-- link 2-->
+                    <li>
+                        <a href="" class="nav-link ">FullBab</a>
+                    </li>
+                    <!-- end of link 2 -->
+
+                    <!-- link 3-->
+
+
+                </ul>
+                <!-- end of links -->
+
+                <!-- nav icons -->
+                <ul class="nav-icons">
+                    <!-- icon 1 -->
+                    <img src="./myimges/20240227_102800_0000.png" class="nav-logo" alt="logo" />
+                    <!-- end fo icom 3 -->
+                </ul>
+                <!-- end of nav icons -->
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="quiz">
+            <div class="heading">
+                <p class="title">Quiz app</p>
+                <p class="subtitle">Daily Quiz to test your knowledge</p>
+            </div>
+            <div class="result hide">
+                <p>You scored 5 /5</p>
+                <p class="reload">
+                    <button onclick="document.location.reload(true)">Try Again</button>
+                </p>
+            </div>
+            <form class="quiz-form">
+                <div class="question">
+                    <p>1. Renang merupakan olahraga yang berasal dari …</p>
+                    <div class="option">
+                        <input type="radio" name="q1" value="A">
+                        <label for="">a. Jerman</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="B">
+                        <label for="">b. Inggris</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="C">
+                        <label for="">c. Amerika</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="D">
+                        <label for="">d. China</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="E">
+                        <label for="">e. Spanyol</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Renang dipopulerkan oleh …</p>
+                    <div class="option">
+                        <input type="radio" name="q2" value="A">
+                        <label for="">a. Nicolas Wynman</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="B">
+                        <label for="">b. Lewis Robert</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="C">
+                        <label for="">c. H. Fisher</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="D">
+                        <label for="">d. M.J. Panley</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="E">
+                        <label for="">e. William G. Morgan</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Induk organisasi renang di Indonesia adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q3" value="A">
+                        <label for="">a. PASI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="B">
+                        <label for="">b. PRSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="C">
+                        <label for="">c. PBSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="D">
+                        <label for="">d. PBVSI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="E">
+                        <label for="">e. PSSI</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>4. Berikut ini adalah macam-macam gaya dalam renang, kecuali …</p>
+                    <div class="option">
+                        <input type="radio" name="q4" value="A">
+                        <label for="">a. Gaya Bebas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="B">
+                        <label for="">b. Gaya Dada</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="C">
+                        <label for="">c. Gaya Punggung</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="D">
+                        <label for="">d. Gaya Kupu-kupu</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="E">
+                        <label for="">e. Gaya Katak</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Pengambilan nafas dalam renang gaya punggung adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q5" value="A">
+                        <label for="">a. Mulut</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="B">
+                        <label for="">b. Hidung</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="C">
+                        <label for="">c. Mulut dan Hidung</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="D">
+                        <label for="">d. Pernafasan ditahan saat berenang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="E">
+                        <label for="">e. Pernafasan dihembuskan</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>6. Posisi tubuh saat melakukan start gaya bebas adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q6" value="A">
+                        <label for="">a. Berada di atas balok start</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="B">
+                        <label for="">b. Berada di dala air kolam</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="C">
+                        <label for="">c. Berada di samping kanan kolam</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="D">
+                        <label for="">d. Berada di samping kiri kolam</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="E">
+                        <label for="">e. Terserah pada perenang</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Faktor terpenting dalam melakukan koordinasi gerakan renang gaya punggung adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q7" value="A">
+                        <label for="">a. Koordinasi gerakan lengan dan posisi badan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="B">
+                        <label for="">b. Koordinasi gerakan kaki dan posisi badan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="C">
+                        <label for="">c. Koordinasi gerakan kaki dan pernafasan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="D">
+                        <label for="">d. Koordinasi gerakan kaki dan lengan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="E">
+                        <label for="">e. Koordinasi gerakan lengan dan pernafasan</label>
+                    </div>
+                </div>
+
+                <!-- Continue this pattern until question 15 -->
+                <div class="question">
+                    <p>8. Kedua tangan bersama-sama digerakkan ke depan di atas permukaan air disebut gaya …</p>
+                    <div class="option">
+                        <input type="radio" name="q8" value="A">
+                        <label for="">a. Bebas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="B">
+                        <label for="">b. Punggung</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="C">
+                        <label for="">c. Dada</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="D">
+                        <label for="">d. Katak</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="E">
+                        <label for="">e. Kupu-kupu</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Posisi badan pada saat melakukan renang gaya punggung adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q9" value="A">
+                        <label for="">a. Berdiri</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="B">
+                        <label for="">b. Jongkok</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="C">
+                        <label for="">c. Tengkurap</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="D">
+                        <label for="">d. Terlentang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="E">
+                        <label for="">e. Miring</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Untuk dapat melakukan gerakan renang gaya bebas dengan baik, perenang harus memperhatikan beberapa komponen gerakan tubuh seperti, pernapasan, posisi tangan, posisi badan serta gerakan kaki. Untuk Posisi tubuh perenang yang baik
+                        ketika melakukan renang gaya bebas adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q10" value="A">
+                        <label for="">a. Mulai dari ujung tangan sampai ke kaki perenang sejajar atau rata – rata air.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="B">
+                        <label for="">b. Posisi tangan perenang lebih tinggi dari posisi kakinya.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="C">
+                        <label for="">c. Posisi tangan perenang lebih rendah dari posisi kakinya.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="D">
+                        <label for="">d. Posisi kepala diangkat di atas permukaan air, sedangkan kaki perenang tersebut berada paling bawah.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="E">
+                        <label for="">e. Posisi tangan dan kaki perenang sejajar dan rata–rata air, namun posisi pinggulnya ditekuk ke bagian bawah.</label>
+                    </div>
+                </div>
+
+                <!-- Continue this pattern until question 15 -->
+                <div class="question">
+                    <p>11. Pertolongan kecelakaan di air merupakan pertolongan yang harus dilakukan ketika terjadi peristiwa tenggelam dalam air. Peristiwa tenggelam dalam diakibatkan ketidak mampuan seseorang untuk melakukan renang atau mengalami kejang
+                        dalam air. Untuk itu, diperlukan pengetahuan tentang dasar-dasar penyelamatan di air untuk mengatasi kecelakaan di air. Sikap kita dalam melakukan pertolongan terhadap seseorang yang mengalami kecelakaan di air adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q11" value="A">
+                        <label for="">a. Perhatikan tempat sekitar, apakah ada alat yang dapat digunakan untuk menolong, seperti ban, tali, dan galah atau benda apa saja yang dapat terapung.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="B">
+                        <label for="">b. Mematuhi instruksi guru sebelum turut serta dalam kegiatan olahraga di air.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="C">
+                        <label for="">c. Mempelajari cara-cara memberikan pertolongan dan berusaha memberikan pertolongan pertama pada kecelakaan.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="D">
+                        <label for="">d. Memahami bagaimana memberikan pertolongan dan berusaha sebaik-baiknya, mematuhi peraturan-peraturan yang berlaku dalam melakukan usaha pertolongan.</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="E">
+                        <label for="">e. Hanya dibiarkan begitu saja.</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>12. Gerakan lengan dan kaki dalam gaya punggung serupa dengan gaya …</p>
+                    <div class="option">
+                        <input type="radio" name="q12" value="A">
+                        <label for="">a. Gaya kepala</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="B">
+                        <label for="">b. Gaya kupu-kupu</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="C">
+                        <label for="">c. Gaya punggung</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="D">
+                        <label for="">d. Gaya dada</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="E">
+                        <label for="">e. Gaya bebas</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>13. Sebelum diayunkan ke depan, kedua belah lengan secara bersamaan ditekan ke bawah dan digerakkan ke arah luar. Adapun posisi kedua belah kaki secara bersamaan menendang ke bawah dan ke atas seperti gerakan sirip ekor ikan. Uraian
+                        tersebut merupakan gerakan dari gaya …</p>
+                    <div class="option">
+                        <input type="radio" name="q13" value="A">
+                        <label for="">a. Gaya bebas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="B">
+                        <label for="">b. Gaya kupu-kupu</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="C">
+                        <label for="">c. Gaya punggung</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="D">
+                        <label for="">d. Gaya dada</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="E">
+                        <label for="">e. Gaya kepala</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>14. Pada nomor 4 x 100 m gaya ganti estafet satu regu diwakili oleh …</p>
+                    <div class="option">
+                        <input type="radio" name="q14" value="A">
+                        <label for="">a. 2 pemain</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="B">
+                        <label for="">b. 5 pemain</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="C">
+                        <label for="">c. 8 pemain</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="D">
+                        <label for="">d. 6 pemain</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="E">
+                        <label for="">e. 4 pemain</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>15. Jarak lintas renang terpendek adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q15" value="A">
+                        <label for="">a. 1,0 m</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="B">
+                        <label for="">b. 25 m</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="C">
+                        <label for="">c. 50 m</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="D">
+                        <label for="">d. 1,35 m</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="E">
+                        <label for="">e. 6 m</label>
+                    </div>
+                </div>
+
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./renang.js"></script>
+
+
+</body>
+
+</html>

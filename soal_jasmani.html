@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>E-Learning</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./icon/3/favicon.ico" />
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css" />
+    <!-- styles css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+
+
+
+
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+         :root {
+            --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .quiz {
+            background-color: #0d479a;
+            padding: 30px;
+        }
+        
+        .heading {
+            margin: 10px auto 10px auto;
+        }
+        
+        .heading .title {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .heading .subtitle {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .result {
+            text-align: center;
+            min-width: 350px;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 5px;
+            background: white;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .result p:first-child {
+            padding: 10px 20px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .reload button {
+            background-color: #04aa6d;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0px 0px 5px 5px;
+            width: 100%;
+            border: 0px;
+        }
+        
+        .reload button:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+        
+        .quiz-form {
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .question {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question>* {
+            font-size: 18px;
+        }
+        
+        .option {
+            margin-left: 10px;
+        }
+        
+        .correct {
+            background-color: #c8ffdf;
+        }
+        
+        .wrong {
+            background-color: #ff5d5d;
+        }
+        
+        .submit {
+            text-align: center;
+            margin: 30px 0px;
+        }
+        
+        .submit input {
+            background-color: #04aa6d;
+            padding: 5px 25px;
+            color: white;
+            font-size: 22px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 0;
+        }
+        
+        .submit input:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <header id="home">
+        <!-- ===========navbar========== -->
+        <nav class="navbar">
+            <div class="nav-center">
+                <!-- nav header  -->
+                <div class="nav-header">
+                    <img src="./myimges/Desain tanpa judul (3).png" class="nav-logo" alt="logo" />
+                    <button type="button" class="nav-toggle" id="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+                </div>
+                <!-- end of nav heaer -->
+                <!-- links -->
+                <ul class="nav-links" id="nav-links">
+                    <!-- link 1 -->
+                    <li>
+                        <a href="index.html" class="nav-link ">home</a>
+                    </li>
+                    <!-- end of link 1 -->
+
+                    <!-- link 2-->
+                    <li>
+                        <a href="" class="nav-link ">FullBab</a>
+                    </li>
+                    <!-- end of link 2 -->
+
+                    <!-- link 3-->
+
+
+                </ul>
+                <!-- end of links -->
+
+                <!-- nav icons -->
+                <ul class="nav-icons">
+                    <!-- icon 1 -->
+                    <img src="./myimges/20240227_102800_0000.png" class="nav-logo" alt="logo" />
+                    <!-- end fo icom 3 -->
+                </ul>
+                <!-- end of nav icons -->
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="quiz">
+            <div class="heading">
+                <p class="title">Quiz app</p>
+                <p class="subtitle">Daily Quiz to test your knowledge</p>
+            </div>
+            <div class="result hide">
+                <p>You scored 5 /5</p>
+                <p class="reload">
+                    <button onclick="document.location.reload(true)">Try Again</button>
+                </p>
+            </div>
+            <form class="quiz-form">
+                <div class="question">
+                    <p>1. Test kebugaran jasmani bertujuan untuk … kecuali</p>
+                    <div class="option">
+                        <input type="radio" name="q1" value="A">
+                        <label for="">a. Untuk menilai kemampuan fisik seseorang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="B">
+                        <label for="">b. Mengukur kemampuan kebugaran jasmani seseorang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="C">
+                        <label for="">c. Untuk mengetahui kecerdasan seseorang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="D">
+                        <label for="">d. Mengetahui kondisi mental seseorang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="E">
+                        <label for="">e. Mengetahui perkembangan kondisi seseorang</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Kemampuan seseorang dalam melakukan gerakan olahraga dalam waktu yang sesingkat-singkatnya dinamakan …</p>
+                    <div class="option">
+                        <input type="radio" name="q2" value="A">
+                        <label for="">a. Kekuatan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="B">
+                        <label for="">b. Kebugaran</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="C">
+                        <label for="">c. Kelenturan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="D">
+                        <label for="">d. Kecepatan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="E">
+                        <label for="">e. Keseimbangan</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. Pengertian dari kelenturan yaitu …</p>
+                    <div class="option">
+                        <input type="radio" name="q3" value="A">
+                        <label for="">a. Kemampuan syaraf dalam mengatur ritme tubuh</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="B">
+                        <label for="">b. Kemampuan sendi untuk melakukan gerakan secara maksimal</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="C">
+                        <label for="">c. Kemampuan otot menahan berat tubuh</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="D">
+                        <label for="">d. Keseimbangan tubuh dalam melakukan gerakan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="E">
+                        <label for="">e. Kelincahan seseorang dalam beradaptasi dengan ritme musik</label>
+                    </div>
+                </div>
+                <!-- Continue with the remaining questions -->
+                <div class="question">
+                    <p>4. Latihan kebugaran jasmani dengan melakukan angkat tubuh memakai alat bantu palang tunggal dinamakan …</p>
+                    <div class="option">
+                        <input type="radio" name="q4" value="A">
+                        <label for="">a. Sprint</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="B">
+                        <label for="">b. Squat jump</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="C">
+                        <label for="">c. Sit up</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="D">
+                        <label for="">d. Pull up</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="E">
+                        <label for="">e. Push up</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>5. Berikut yang termasuk unsur – unsur kebugaran jasmani, kecuali …</p>
+                    <div class="option">
+                        <input type="radio" name="q5" value="A">
+                        <label for="">a. Kekuatan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="B">
+                        <label for="">b. Keindahan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="C">
+                        <label for="">c. Daya tahan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="D">
+                        <label for="">d. Kelenturan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="E">
+                        <label for="">e. Kelincahan</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>6. Tes lari cepat dapat diukur dengan menggunakan alat yang disebut …</p>
+                    <div class="option">
+                        <input type="radio" name="q6" value="A">
+                        <label for="">a. Metronome</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="B">
+                        <label for="">b. Jam tangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="C">
+                        <label for="">c. Stetoskop</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="D">
+                        <label for="">d. Stopwatch</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="E">
+                        <label for="">e. Bendera strat</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>7. Berikut yang bukan latihan kekuatan otot adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q7" value="A">
+                        <label for="">a. Sit up</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="B">
+                        <label for="">b. Push up</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="C">
+                        <label for="">c. Pull up</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="D">
+                        <label for="">d. Lari</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="E">
+                        <label for="">e. Naik turun box</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>8. Cedera yang dialami seseorang saat olah raga dapat disebabkan karena kurangnya …</p>
+                    <div class="option">
+                        <input type="radio" name="q8" value="A">
+                        <label for="">a. Kelincahan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="B">
+                        <label for="">b. Ketangkasan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="C">
+                        <label for="">c. Kecepatan gerak</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="D">
+                        <label for="">d. Kekuatan otot</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="E">
+                        <label for="">e. Kelenturan persendian</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>9. Melakukan latihan kebugaran jasmani secara teratur dapat memiliki banyak manfaat, salah satunya adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q9" value="A">
+                        <label for="">a. Meningkatkan vitalitas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="B">
+                        <label for="">b. Meningkatkan kualitas hidup</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="C">
+                        <label for="">c. Rentan terhadap kesehatan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="D">
+                        <label for="">d. Terhindar dari musuh</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="E">
+                        <label for="">e. Menurunkan kesehatan</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>10. Berikut faktor yang berpengaruh terhadap kemampuan kelincahan adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q10" value="A">
+                        <label for="">a. Pernapasan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="B">
+                        <label for="">b. Kepandaian</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="C">
+                        <label for="">c. Kelentukan dan keseimbangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="D">
+                        <label for="">d. Kesempatan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="E">
+                        <label for="">e. Kepandaian dan kesempatan</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>11. Latihan lari 1.200 meter putra dan 1.000 meter putri berfungsi untuk …</p>
+                    <div class="option">
+                        <input type="radio" name="q11" value="A">
+                        <label for="">a. Menyelaraskan daya tahan tubuh dan daya ingat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="B">
+                        <label for="">b. Mengukur daya tahan jantung, peredaran darah, dan pernapasan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="C">
+                        <label for="">c. Mempertahankan kekuatan dan kelenturan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="D">
+                        <label for="">d. Meningkatkan daya ingat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="E">
+                        <label for="">e. Mempertahankan dan menyelaraskan kondisi sekitar</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>12. Latihan speed play dapat meningkatkan daya tahan …</p>
+                    <div class="option">
+                        <input type="radio" name="q12" value="A">
+                        <label for="">a. Jantung dan paru – paru</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="B">
+                        <label for="">b. Lengan dan bahu</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="C">
+                        <label for="">c. Perut</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="D">
+                        <label for="">d. Lengan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="E">
+                        <label for="">e. Punggung</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>13. Latihan kelincahan untuk mengubah gerak tubuh arah lurus dapat dilakukan dengan melakukan latihan …</p>
+                    <div class="option">
+                        <input type="radio" name="q13" value="A">
+                        <label for="">a. Lari zig-zag</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="B">
+                        <label for="">b. Squat thrust</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="C">
+                        <label for="">c. Shuttle run</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="D">
+                        <label for="">d. Angkat barbel</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="E">
+                        <label for="">e. Jongkok berdiri</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>14. Latihan kebugaran jasmani terdapat bermacam bentuk latihan, salah satunya adalah latihan back up. Latihan kebugaran jasmani dengan back up bertujuan untuk melatih otot …</p>
+                    <div class="option">
+                        <input type="radio" name="q14" value="A">
+                        <label for="">a. Tangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="B">
+                        <label for="">b. Kaki</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="C">
+                        <label for="">c. Punggung</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="D">
+                        <label for="">d. Lengan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="E">
+                        <label for="">e. Perut</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>15. Apa tujuan dari latihan lari 1.200 meter putra …</p>
+                    <div class="option">
+                        <input type="radio" name="q15" value="A">
+                        <label for="">a. Mengukur kekuatan fisik seseorang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="B">
+                        <label for="">b. Mengetahui Ketahanan otot seseorang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="C">
+                        <label for="">c. Mengukur daya tahan jantung, peredaran darah, dan pernafasan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="D">
+                        <label for="">d. Mengukur kesehatan seseorang</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="E">
+                        <label for="">e. Melihat perkembangan fisik seseorang</label>
+                    </div>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./jasmani.js"></script>
+
+
+</body>
+
+</html>

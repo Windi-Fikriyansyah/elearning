@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>E-Learning</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./icon/3/favicon.ico" />
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css" />
+    <!-- styles css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+
+
+
+
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+         :root {
+            --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .quiz {
+            background-color: #0d479a;
+            padding: 30px;
+        }
+        
+        .heading {
+            margin: 10px auto 10px auto;
+        }
+        
+        .heading .title {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .heading .subtitle {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .result {
+            text-align: center;
+            min-width: 350px;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 5px;
+            background: white;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .result p:first-child {
+            padding: 10px 20px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .reload button {
+            background-color: #04aa6d;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 0px 0px 5px 5px;
+            width: 100%;
+            border: 0px;
+        }
+        
+        .reload button:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+        
+        .quiz-form {
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .question {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .question>* {
+            font-size: 18px;
+        }
+        
+        .option {
+            margin-left: 10px;
+        }
+        
+        .correct {
+            background-color: #c8ffdf;
+        }
+        
+        .wrong {
+            background-color: #ff5d5d;
+        }
+        
+        .submit {
+            text-align: center;
+            margin: 30px 0px;
+        }
+        
+        .submit input {
+            background-color: #04aa6d;
+            padding: 5px 25px;
+            color: white;
+            font-size: 22px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 0;
+        }
+        
+        .submit input:hover {
+            background-color: #3aecab;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <header id="home">
+        <!-- ===========navbar========== -->
+        <nav class="navbar">
+            <div class="nav-center">
+                <!-- nav header  -->
+                <div class="nav-header">
+                    <img src="./myimges/Desain tanpa judul (3).png" class="nav-logo" alt="logo" />
+                    <button type="button" class="nav-toggle" id="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+                </div>
+                <!-- end of nav heaer -->
+                <!-- links -->
+                <ul class="nav-links" id="nav-links">
+                    <!-- link 1 -->
+                    <li>
+                        <a href="index.html" class="nav-link ">home</a>
+                    </li>
+                    <!-- end of link 1 -->
+
+                    <!-- link 2-->
+                    <li>
+                        <a href="" class="nav-link ">FullBab</a>
+                    </li>
+                    <!-- end of link 2 -->
+
+                    <!-- link 3-->
+
+
+                </ul>
+                <!-- end of links -->
+
+                <!-- nav icons -->
+                <ul class="nav-icons">
+                    <!-- icon 1 -->
+                    <img src="./myimges/20240227_102800_0000.png" class="nav-logo" alt="logo" />
+                    <!-- end fo icom 3 -->
+                </ul>
+                <!-- end of nav icons -->
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="quiz">
+            <div class="heading">
+                <p class="title">Quiz app</p>
+                <p class="subtitle">Daily Quiz to test your knowledge</p>
+            </div>
+            <div class="result hide">
+                <p>You scored 5 /5</p>
+                <p class="reload">
+                    <button onclick="document.location.reload(true)">Try Again</button>
+                </p>
+            </div>
+            <form class="quiz-form">
+                <div class="question">
+                    <p>1. Proses interaksi yang dilakukan oleh individu dengan individu dapat juga oleh individu dengan kelompok disebut dengan …</p>
+                    <div class="option">
+                        <input type="radio" name="q1" value="A">
+                        <label for="">a. Percakapan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="B">
+                        <label for="">b. Sosialisasi</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="C">
+                        <label for="">c. Pergaulan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="D">
+                        <label for="">d. Permintaan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="E">
+                        <label for="">e. Kesenjangan</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Pergaulan yang membawa pengaruh positif bagi perkembangan kepribadian seseorang disebut …</p>
+                    <div class="option">
+                        <input type="radio" name="q2" value="A">
+                        <label for="">a. Pergaulan modern</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="B">
+                        <label for="">b. Pergaulan sehat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="C">
+                        <label for="">c. Pergaulan kuno</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="D">
+                        <label for="">d. Pergaulan tidak sehat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="E">
+                        <label for="">e. Pergaulan bebas</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. Salah satu ciri pergaulan sehat adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q3" value="A">
+                        <label for="">a. Saling menutupi diri</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="B">
+                        <label for="">b. Membanggakan diri sendiri</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="C">
+                        <label for="">c. Selalu berprasangka buruk</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="D">
+                        <label for="">d. Menyadari perkembangan diri</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="E">
+                        <label for="">e. Emosional</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>4. Pergaulan tidak sehat disebut juga dengan …</p>
+                    <div class="option">
+                        <input type="radio" name="q4" value="A">
+                        <label for="">a. Pergaulan dini</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="B">
+                        <label for="">b. Pergaulan sehat</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="C">
+                        <label for="">c. Pergaulan tradisional</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="D">
+                        <label for="">d. Pergaulan anak</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="E">
+                        <label for="">e. Pergaulan bebas</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Hal yang paling mendasar sebagai faktor timbulnya pergaulan tidak sehat adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q5" value="A">
+                        <label for="">a. Agama dan iman</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="B">
+                        <label for="">b. Perubahan lingkungan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="C">
+                        <label for="">c. Perkembangan zaman</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="D">
+                        <label for="">d. Kesenjangan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="E">
+                        <label for="">e. Pengaruh budaya barat</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Berikut tindakan pencegahan terhadap perilaku pergaulan bebas adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q6" value="A">
+                        <label for="">a. Hidup mewah</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="B">
+                        <label for="">b. Mengikuti pola hidup orang lain</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="C">
+                        <label for="">c. Mematuhi norma agama</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="D">
+                        <label for="">d. Menyendiri di rumah saja</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="E">
+                        <label for="">e. Selalu mengikuti perkembangan zaman</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Berikut yang merupakan contoh pergaulan sehat adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q7" value="A">
+                        <label for="">a. Keluar rumah sampai malam hari</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="B">
+                        <label for="">b. Mengikuti kegiatan karang taruna</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="C">
+                        <label for="">c. Membolos sekolah</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="D">
+                        <label for="">d. Ikut tawuran antar sekolah</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="E">
+                        <label for="">e. Mengikuti ajaran teman untuk merokok</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Pendidikan pergaulan sehat yang diberikan kepada remaja dapat dilakukan dengan upaya ...</p>
+                    <div class="option">
+                        <input type="radio" name="q8" value="A">
+                        <label for="">a. Penyuluhan, diskusi kelompok, tanya jawab, film</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="B">
+                        <label for="">b. Film, tanya jawab, debat, menasihati</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="C">
+                        <label for="">c. Menasihati, ceramah, debat, tanya jawab</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="D">
+                        <label for="">d. Film, mengusir, penyuluhan, diskusi kelompok</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="E">
+                        <label for="">e. Menyarankan, penyuluhan, diskusi kelompok, mengusir</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Orang yang paling cocok untuk memberikan pelajaran pergaulan sehat bagi remaja adalah ...</p>
+                    <div class="option">
+                        <input type="radio" name="q9" value="A">
+                        <label for="">a. Polri</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="B">
+                        <label for="">b. Suster</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="C">
+                        <label for="">c. Orang tua</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="D">
+                        <label for="">d. Dokter</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="E">
+                        <label for="">e. Teman</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Masa peralihan diantara masa anak-anak dan dan dewasa dimana akan mengalami masa pertumbuhan dan perkembangan fisiknya disebut masa …</p>
+                    <div class="option">
+                        <input type="radio" name="q10" value="A">
+                        <label for="">a. Masa dewasa</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="B">
+                        <label for="">b. Masa perubahan fisik</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="C">
+                        <label for="">c. Masa perubahan mental</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="D">
+                        <label for="">d. Masa remaja</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="E">
+                        <label for="">e. Masa anak-anak</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>11. Di antara cara pencegahan pergaulan bebas yang dilakukan keluarga, kecuali …</p>
+                    <div class="option">
+                        <input type="radio" name="q11" value="A">
+                        <label for="">a. Menjauhkan anak dari hal-hal yang mengarah pada pergaulan bebas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="B">
+                        <label for="">b. Memberikan informasi tentang bahaya pergaulan bebas secara bertahap</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="C">
+                        <label for="">c. Menanamkan etika cara memelihara diri dari hal-hal negatif</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="D">
+                        <label for="">d. Mengajarkan anak cara berpacaran</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="E">
+                        <label for="">e. Mengajarkan kaidah keagamaan sedini mungkin</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>12. Berikut ini merupakan perilaku budaya Barat yang tidak sesuai dengan norma-norma yang berlaku di masyarakat di Indonesia, kecuali …</p>
+                    <div class="option">
+                        <input type="radio" name="q12" value="A">
+                        <label for="">a. free sex</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="B">
+                        <label for="">b. samanleven</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="C">
+                        <label for="">c. kumpul kebo</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="D">
+                        <label for="">d. perkawinan yang sah</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="E">
+                        <label for="">e. mabuk-mabukan</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>13. Berganti-ganti pasangan sangat berpotensi terkena penyakit …</p>
+                    <div class="option">
+                        <input type="radio" name="q13" value="A">
+                        <label for="">a. kelamin</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="B">
+                        <label for="">b. batuk</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="C">
+                        <label for="">c. influenza</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="D">
+                        <label for="">d. hati</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="E">
+                        <label for="">e. diare</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>14. Penyakit akibat hubungan seksual yang sampai saat ini belum ditemukan obat yang mujarab untuk menyembuhkannya adalah …</p>
+                    <div class="option">
+                        <input type="radio" name="q14" value="A">
+                        <label for="">a. sifilis</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="B">
+                        <label for="">b. AIDS</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="C">
+                        <label for="">c. TBC</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="D">
+                        <label for="">d. kanker</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="E">
+                        <label for="">e. herpes progenitalis</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>15. Cara yang dapat dilakukan keluarga dalam melakukan pencegahan pergaulan bebas yaitu kecuali …</p>
+                    <div class="option">
+                        <input type="radio" name="q15" value="A">
+                        <label for="">a. Menjauhi anak dari hal-hal yang berbau pergaulan bebas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="B">
+                        <label for="">b. Memberikan pemahaman mengenai bahaya pergaulan bebas</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="C">
+                        <label for="">c. Menanamkan etika cara memelihara diri dari hal negatif</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="D">
+                        <label for="">d. Mengajarkan anak pacaran</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="E">
+                        <label for="">e. Mengajarkan kaidah keagamaan sedini mungkin</label>
+                    </div>
+                </div>
+
+
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./pergaulan.js"></script>
+
+
+</body>
+
+</html>
